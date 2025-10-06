@@ -1,0 +1,38 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #AFAFAF;
+}
+h1 {
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    color: #000000;
+    padding: 10px;
+}
+nav {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    color: #000000;
+    padding: 10px;
+}
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: left;
+    color: #000000;
+    padding: 10px;
+}
+.footer {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
