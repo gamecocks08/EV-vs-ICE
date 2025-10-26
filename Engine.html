@@ -22,8 +22,15 @@
             </nav>
         </header>
         <section>
-            <div style="display: flex; justify-content: center; width: 100%; align-items: center; margin-top: 20px;">
-                <img src="assets/ICE_Animation.gif" alt="EV-motor" style="margin-right: 5%; width: 50%; height: 50%;">
+            <div id="gallery" style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 20px; position: relative;">
+                <button id="prevBtn" onclick="changeImage(-1)" style="background-color: #828282; color: white; border: none; padding: 15px 20px; font-size: 18px; cursor: pointer; border-radius: 5px; margin-right: 10px;">← Previous</button>
+                <div style="width: 50%; height: auto; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                    <img id="galleryImage" src="assets/ICE_Parts_Grid.jpg" alt="Engine gallery" style="width: 100%; height: auto; display: block;">
+                </div>
+                <button id="nextBtn" onclick="changeImage(1)" style="background-color: #828282; color: white; border: none; padding: 15px 20px; font-size: 18px; cursor: pointer; border-radius: 5px; margin-left: 10px;">Next →</button>
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <span id="imageCounter"></span>
             </div>
         </section>
         <section>
@@ -67,5 +74,42 @@
                 <strong>Copyright © 2025 EV vs ICE Learning</strong>
             </div>
         </footer>
+        <script>
+            // Array of images for the gallery
+            const images = [
+                { src: "assets/ICE_Parts_Grid.jpg", alt: "ICE Parts Grid" },
+                { src: "assets/Block.jpg", alt: "Engine Block" },
+                { src: "assets/Cylinder_Head.jpg", alt: "Cylinder Head" },
+                { src: "assets/Piston_Crank_Assembly.jpg", alt: "Piston Crank Assembly" }
+            ];
+            
+            let currentIndex = 0;
+            
+            function displayImage() {
+                const img = document.getElementById('galleryImage');
+                const counter = document.getElementById('imageCounter');
+                img.src = images[currentIndex].src;
+                img.alt = images[currentIndex].alt;
+                counter.textContent = `Image ${currentIndex + 1} of ${images.length}`;
+            }
+            
+            function changeImage(direction) {
+                currentIndex += direction;
+                
+                // Wrap around if at the end or beginning
+                if (currentIndex >= images.length) {
+                    currentIndex = 0;
+                } else if (currentIndex < 0) {
+                    currentIndex = images.length - 1;
+                }
+                
+                displayImage();
+            }
+            
+            // Initialize the gallery on page load
+            window.onload = function() {
+                displayImage();
+            };
+        </script>
     </body>
 </html>
